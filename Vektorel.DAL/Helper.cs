@@ -56,13 +56,6 @@ namespace Vektorel.DAL
             {
                 throw;
             }
-            finally
-            {
-                //if (cn != null && cn.State != ConnectionState.Closed)
-                //{
-                //    cn.Close();
-                //}
-            }
         }
 
         public DataTable MyDataTable(string cmdtext, SqlParameter[] p = null)

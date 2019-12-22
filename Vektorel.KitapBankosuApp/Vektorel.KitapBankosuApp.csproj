@@ -62,11 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmKitapListe.cs">
+    <Compile Include="frmYazarListe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKitapListe.Designer.cs">
-      <DependentUpon>frmKitapListe.cs</DependentUpon>
+    <Compile Include="frmYazarListe.Designer.cs">
+      <DependentUpon>frmYazarListe.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTur.cs">
       <SubType>Form</SubType>
@@ -112,8 +112,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmKitapListe.resx">
-      <DependentUpon>frmKitapListe.cs</DependentUpon>
+    <EmbeddedResource Include="frmYazarListe.resx">
+      <DependentUpon>frmYazarListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTur.resx">
       <DependentUpon>frmTur.cs</DependentUpon>
@@ -159,6 +159,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vektorel.CustomControlLib\Vektorel.CustomControlLib.csproj">
+      <Project>{328a7db1-1a08-45d9-bb63-343fad8448bd}</Project>
+      <Name>Vektorel.CustomControlLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vektorel.KitapBankosu.BLL\Vektorel.KitapBankosu.BLL.csproj">
       <Project>{F48E9D99-A3BE-4E46-B26A-99E9CC164AA6}</Project>
       <Name>Vektorel.KitapBankosu.BLL</Name>

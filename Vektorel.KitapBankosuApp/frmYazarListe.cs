@@ -12,12 +12,12 @@ using Vektorel.KitapBankosu.Models;
 
 namespace Vektorel.KitapBankosuApp
 {
-    public partial class frmKitapListe : Form
+    public partial class frmYazarListe : Form
     {
         YazarBL yz = new YazarBL();
         Yazar y = new Yazar();
         DataTable dt;
-        public frmKitapListe()
+        public frmYazarListe()
         {
             InitializeComponent();
             grdYazarlar.AutoGenerateColumns = false;

@@ -1,6 +1,6 @@
 ﻿namespace Vektorel.KitapBankosuApp
 {
-    partial class frmKitapListe
+    partial class frmYazarListe
     {
         /// <summary>
         /// Required designer variable.

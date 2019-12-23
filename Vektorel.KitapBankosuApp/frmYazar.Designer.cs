@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtAd = new System.Windows.Forms.TextBox();
-            this.txtSoyad = new System.Windows.Forms.TextBox();
             this.btnEkle = new System.Windows.Forms.Button();
             this.lblAd = new System.Windows.Forms.Label();
             this.lblSoyad = new System.Windows.Forms.Label();
@@ -41,28 +39,10 @@
             this.btnYazarBul = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtAd = new Vektorel.CustomControlLib.MyTextBox();
+            this.txtSoyad = new Vektorel.CustomControlLib.MyTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtAd
-            // 
-            this.txtAd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtAd, 2);
-            this.txtAd.Location = new System.Drawing.Point(79, 3);
-            this.txtAd.MaxLength = 50;
-            this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(233, 20);
-            this.txtAd.TabIndex = 1;
-            // 
-            // txtSoyad
-            // 
-            this.txtSoyad.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtSoyad, 2);
-            this.txtSoyad.Location = new System.Drawing.Point(79, 29);
-            this.txtSoyad.MaxLength = 75;
-            this.txtSoyad.Name = "txtSoyad";
-            this.txtSoyad.Size = new System.Drawing.Size(233, 20);
-            this.txtSoyad.TabIndex = 2;
             // 
             // btnEkle
             // 
@@ -176,14 +156,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.lblAd, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtAd, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblSoyad, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.chkYasiyor, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtSoyad, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dtOlumTar, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblDtar, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblOlumTarih, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.dtDTar, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtAd, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtSoyad, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -193,6 +173,24 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(315, 108);
             this.tableLayoutPanel1.TabIndex = 14;
+            // 
+            // txtAd
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtAd, 2);
+            this.txtAd.Location = new System.Drawing.Point(79, 3);
+            this.txtAd.Mod = Vektorel.CustomControlLib.MyTextBox.CalismaMod.Harf;
+            this.txtAd.Name = "txtAd";
+            this.txtAd.Size = new System.Drawing.Size(233, 20);
+            this.txtAd.TabIndex = 9;
+            // 
+            // txtSoyad
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtSoyad, 2);
+            this.txtSoyad.Location = new System.Drawing.Point(79, 29);
+            this.txtSoyad.Mod = Vektorel.CustomControlLib.MyTextBox.CalismaMod.Harf;
+            this.txtSoyad.Name = "txtSoyad";
+            this.txtSoyad.Size = new System.Drawing.Size(233, 20);
+            this.txtSoyad.TabIndex = 10;
             // 
             // frmYazar
             // 
@@ -219,13 +217,13 @@
         private System.Windows.Forms.Label lblDtar;
         private System.Windows.Forms.Label lblOlumTarih;
         private System.Windows.Forms.Button btnYazarBul;
-        public System.Windows.Forms.TextBox txtAd;
-        public System.Windows.Forms.TextBox txtSoyad;
         public System.Windows.Forms.Button btnEkle;
         public System.Windows.Forms.DateTimePicker dtDTar;
         public System.Windows.Forms.DateTimePicker dtOlumTar;
         public System.Windows.Forms.CheckBox chkYasiyor;
         public System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public CustomControlLib.MyTextBox txtAd;
+        public CustomControlLib.MyTextBox txtSoyad;
     }
 }

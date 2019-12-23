@@ -42,10 +42,11 @@
             this.yayınEvleriniListeleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.grdKitaplar = new System.Windows.Forms.DataGridView();
-            this.Isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KitapAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BasimYil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YayinEvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIsbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmKitapAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBasimYil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYayinEvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdKitaplar)).BeginInit();
             this.SuspendLayout();
@@ -90,14 +91,14 @@
             // btnYazarEkle
             // 
             this.btnYazarEkle.Name = "btnYazarEkle";
-            this.btnYazarEkle.Size = new System.Drawing.Size(180, 22);
+            this.btnYazarEkle.Size = new System.Drawing.Size(153, 22);
             this.btnYazarEkle.Text = "Yazar Ekle";
             this.btnYazarEkle.Click += new System.EventHandler(this.btnYazarEkle_Click);
             // 
             // yazarlarıListeleToolStripMenuItem
             // 
             this.yazarlarıListeleToolStripMenuItem.Name = "yazarlarıListeleToolStripMenuItem";
-            this.yazarlarıListeleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yazarlarıListeleToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.yazarlarıListeleToolStripMenuItem.Text = "Yazarları Listele";
             // 
             // türİşlemleriToolStripMenuItem
@@ -151,53 +152,74 @@
             // 
             // grdKitaplar
             // 
+            this.grdKitaplar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdKitaplar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdKitaplar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdKitaplar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdKitaplar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Isbn,
-            this.KitapAd,
-            this.BasimYil,
-            this.YayinEvi});
+            this.clmIsbn,
+            this.clmKitapAd,
+            this.clmBasimYil,
+            this.clmTur,
+            this.clmYayinEvi});
             this.grdKitaplar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdKitaplar.Location = new System.Drawing.Point(0, 24);
             this.grdKitaplar.Name = "grdKitaplar";
             this.grdKitaplar.ReadOnly = true;
+            this.grdKitaplar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.grdKitaplar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdKitaplar.Size = new System.Drawing.Size(800, 426);
             this.grdKitaplar.TabIndex = 2;
+            this.grdKitaplar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdKitaplar_CellDoubleClick);
             // 
-            // Isbn
+            // clmIsbn
             // 
-            this.Isbn.DataPropertyName = "ISBN";
-            this.Isbn.HeaderText = "ISBN";
-            this.Isbn.Name = "Isbn";
+            this.clmIsbn.DataPropertyName = "ISBN";
+            this.clmIsbn.FillWeight = 54.52399F;
+            this.clmIsbn.HeaderText = "ISBN";
+            this.clmIsbn.Name = "clmIsbn";
+            this.clmIsbn.ReadOnly = true;
             // 
-            // KitapAd
+            // clmKitapAd
             // 
-            this.KitapAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.KitapAd.DataPropertyName = "KitapAd";
-            this.KitapAd.HeaderText = "Kitap Adı";
-            this.KitapAd.Name = "KitapAd";
-            this.KitapAd.Width = 21;
+            this.clmKitapAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.clmKitapAd.DataPropertyName = "KitapAd";
+            this.clmKitapAd.HeaderText = "Kitap Adı";
+            this.clmKitapAd.Name = "clmKitapAd";
+            this.clmKitapAd.ReadOnly = true;
+            this.clmKitapAd.Width = 21;
             // 
-            // BasimYil
+            // clmBasimYil
             // 
-            this.BasimYil.DataPropertyName = "BasimYil";
-            this.BasimYil.HeaderText = "Basım Yılı";
-            this.BasimYil.Name = "BasimYil";
-            this.BasimYil.Width = 50;
+            this.clmBasimYil.DataPropertyName = "BasimYil";
+            this.clmBasimYil.FillWeight = 51.92762F;
+            this.clmBasimYil.HeaderText = "Basım Yılı";
+            this.clmBasimYil.Name = "clmBasimYil";
+            this.clmBasimYil.ReadOnly = true;
             // 
-            // YayinEvi
+            // clmTur
             // 
-            this.YayinEvi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.YayinEvi.DataPropertyName = "YayinEviId";
-            this.YayinEvi.HeaderText = "Yayın Evi";
-            this.YayinEvi.Name = "YayinEvi";
-            this.YayinEvi.Width = 21;
+            this.clmTur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.clmTur.DataPropertyName = "TurAd";
+            this.clmTur.FillWeight = 193.5484F;
+            this.clmTur.HeaderText = "Türü";
+            this.clmTur.Name = "clmTur";
+            this.clmTur.ReadOnly = true;
+            this.clmTur.Width = 21;
+            // 
+            // clmYayinEvi
+            // 
+            this.clmYayinEvi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmYayinEvi.DataPropertyName = "YayinEviAd";
+            this.clmYayinEvi.HeaderText = "Yayın Evi";
+            this.clmYayinEvi.Name = "clmYayinEvi";
+            this.clmYayinEvi.ReadOnly = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grdKitaplar);
             this.Controls.Add(this.menuStrip1);
@@ -205,6 +227,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "frmMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdKitaplar)).EndInit();
@@ -229,9 +253,10 @@
         private System.Windows.Forms.ToolStripMenuItem yayınEvleriniListeleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnCikis;
         private System.Windows.Forms.DataGridView grdKitaplar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KitapAd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BasimYil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YayinEvi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmIsbn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmKitapAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBasimYil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYayinEvi;
     }
 }

@@ -19,7 +19,6 @@ namespace Vektorel.CustomControlLib
 
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
-            
         switch (Mod)
             {
                 case CalismaMod.Normal:

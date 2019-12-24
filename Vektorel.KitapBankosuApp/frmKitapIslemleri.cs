@@ -14,11 +14,21 @@ namespace Vektorel.KitapBankosuApp
 {
     public partial class frmKitapIslemleri : Form
     {
+        List<Yazar> yazarlar;
+        private int kitapid = 0;
+        KitapYazarBL kybl = new KitapYazarBL();
+
         public frmKitapIslemleri()
         {
             InitializeComponent();
         }
-        List<Yazar> yazarlar;
+
+        public frmKitapIslemleri(int kitapid)
+        {
+            InitializeComponent();
+            this.kitapid = kitapid;
+        }
+
         private void FrmKitapIslemleri_Load(object sender, EventArgs e)
         {
             YazarBL yb = new YazarBL();
@@ -35,9 +45,23 @@ namespace Vektorel.KitapBankosuApp
 
             yazarlar = yb.YazarListesi();
             cmbYazarlar.DisplayMember = "AdSoyad";
-            //yazarlar.Insert(0, new Yazar)
             cmbYazarlar.ValueMember = "Yazarid";
             cmbYazarlar.DataSource = yazarlar;
+            if (kitapid!=0)
+            {
+                KitapBL kb = new KitapBL();
+                Kitap k = kb.KitapGetir(kitapid);
+                txtAdet.Text = k.Adet.ToString();
+                txtBasimYil.Text = k.BasimYil.ToString();
+                txtIsbn.Text = k.Isbn;
+                txtKitapAd.Text = k.KitapAd;
+                txtSayfaSayi.Text = k.SayfaSayi.ToString();
+                cmbTurler.SelectedValue = k.TurId;
+                cmbYayinevleri.SelectedValue = k.YayinEviId;
+                lstYazarlar.DisplayMember = "AdSoyad";
+                lstYazarlar.ValueMember = "Yazarid";
+                lstYazarlar.DataSource = kybl.KitapYazarListesi(kitapid);
+            }
         }
 
         private void BtnYazarEkle_Click(object sender, EventArgs e)
@@ -95,7 +119,6 @@ namespace Vektorel.KitapBankosuApp
             Kitap ktp = new Kitap();
             KitapYazar ky = new KitapYazar();
             KitapBL ktpbl = new KitapBL();
-            KitapYazarBL kybl = new KitapYazarBL();
 
             ktp.KitapAd = txtKitapAd.Text;
             ktp.SayfaSayi = Convert.ToInt16(txtSayfaSayi.Text);

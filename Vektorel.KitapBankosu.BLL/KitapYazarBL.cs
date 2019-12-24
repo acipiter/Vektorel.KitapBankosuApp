@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -31,5 +32,18 @@ namespace Vektorel.KitapBankosu.BLL
             }
 
         }
+        public List<Yazar> KitapYazarListesi(int kitapid)
+        {
+            List<Yazar> lst = new List<Yazar>();
+            SqlParameter[] p = { new SqlParameter("@KitapId", kitapid) };
+            SqlDataReader dr = hlp.ExecuteReader("spKitapYazarGetir", p, CommandType.StoredProcedure);
+            while (dr.Read())
+            {
+                lst.Add(new Yazar { AdSoyad = dr["Ad"].ToString() + " " + dr["Soyad"].ToString(), Yazarid = Convert.ToInt32(dr["YazarId"]) });
+            }
+            dr.Close();
+            return lst;
+        }
+
     }
 }

@@ -41,7 +41,9 @@ namespace Vektorel.KitapBankosuApp
 
         private void grdKitaplar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(e.RowIndex.ToString());
+            int kitapid = Convert.ToInt32(dt.Rows[e.RowIndex]["KitapId"]);
+            frmKitapIslemleri frm = new frmKitapIslemleri(kitapid);
+            frm.ShowDialog();
         }
     }
 }

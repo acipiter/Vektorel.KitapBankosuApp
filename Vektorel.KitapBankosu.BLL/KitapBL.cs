@@ -34,5 +34,26 @@ namespace Vektorel.KitapBankosu.BLL
         }
 
         public DataTable KitapTablosu() => hlp.MyDataTable("spKitapListesi");
+
+        public Kitap KitapGetir(int kitapid)
+        {
+            SqlParameter[] p = { new SqlParameter("@KitapId", kitapid) };
+            SqlDataReader dr = hlp.ExecuteReader("spKitapGetir", p,CommandType.StoredProcedure);
+            Kitap k = null;
+            if (dr.Read())
+            {
+                k = new Kitap();
+                k.Adet = Convert.ToInt16(dr["Adet"]);
+                k.BasimYil = Convert.ToInt16(dr["BasimYil"]);
+                k.Isbn = dr["ISBN"].ToString();
+                k.KitapAd = dr["KitapAd"].ToString();
+                k.KitapId = Convert.ToInt16(dr["KitapId"]);
+                k.SayfaSayi = Convert.ToInt16(dr["SayfaSayi"]);
+                k.TurId = Convert.ToInt16(dr["TurId"]);
+                k.YayinEviId = Convert.ToInt16(dr["YayinEviId"]);
+            }
+            dr.Close();
+            return k;
+        }
     }
 }

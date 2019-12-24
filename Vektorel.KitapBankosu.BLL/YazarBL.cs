@@ -60,12 +60,12 @@ namespace Vektorel.KitapBankosu.BLL
         {
             try
             {
-                SqlParameter[] p = { 
-                    new SqlParameter("@Ad", yazar.Ad), 
-                    new SqlParameter("@Soyad", yazar.Soyad), 
-                    new SqlParameter("@DTar", yazar.DTar), 
-                    new SqlParameter("@OlumTarih", yazar.OlumTarih), 
-                    new SqlParameter("@YazarId", yazar.Yazarid) 
+                SqlParameter[] p = {
+                    new SqlParameter("@Ad", yazar.Ad),
+                    new SqlParameter("@Soyad", yazar.Soyad),
+                    new SqlParameter("@DTar", yazar.DTar),
+                    new SqlParameter("@OlumTarih", yazar.OlumTarih),
+                    new SqlParameter("@YazarId", yazar.Yazarid)
                 };
 
                 if (yazar.OlumTarih == DateTime.MinValue)
@@ -112,6 +112,7 @@ namespace Vektorel.KitapBankosu.BLL
         }
 
         public DataTable YazarTablosu() => hlp.MyDataTable("Select * from tblYazarlar");
+
 
 
     }
